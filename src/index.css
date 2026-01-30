@@ -1,1 +1,93 @@
 @import "tailwindcss";
+
+/* Barlow Font Family */
+@font-face {
+  font-family: "Barlow";
+  src: url("./assets/fonts/Barlow/Barlow-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Barlow";
+  src: url("./assets/fonts/Barlow/Barlow-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fraunces Font Family (Variable Font) */
+@font-face {
+  font-family: "Fraunces";
+  src: url("./assets/fonts/Fraunces/Fraunces-VariableFont_SOFT,WONK,opsz,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("./assets/fonts/Fraunces/Fraunces-Italic-VariableFont_SOFT,WONK,opsz,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@theme {
+  /* Breakpoints */
+  --breakpoint-sm: 21.4rem;
+  --breakpoint-md: 44rem;
+
+  /* Color Palette */
+  --color-neutral-0: #ffffffff;
+  --color-neutral-50: #fefcf7ff;
+  --color-neutral-100: #f4f1ebff;
+  --color-neutral-200: #e2dedbff;
+  --color-teal-300: #66d2cfff;
+  --color-neutral-500: #83888fff;
+  --color-neutral-900: #333d4bff;
+  --color-orange-200: #fdd6baff;
+  --color-teal-600: #0e8784ff;
+
+  /* Font Families */
+  --font-primary: "Barlow", system-ui, -apple-system, sans-serif;
+  --font-secondary: "Fraunces", serif;
+}
+
+@layer components {
+  /* Text Presets */
+  .text-preset-1 {
+    @apply font-secondary text-4xl sm:text-5xl md:text-7xl font-black leading-none;
+  }
+
+  .text-preset-2 {
+    @apply font-secondary text-3xl md:text-4xl font-black leading-[120%];
+  }
+
+  .text-preset-3 {
+    @apply font-secondary text-3xl font-black leading-[114%];
+  }
+
+  .text-preset-4 {
+    @apply font-secondary text-2xl font-black leading-normal;
+  }
+
+  .text-preset-5 {
+    @apply font-primary text-lg font-bold leading-[140%];
+  }
+
+  .text-preset-6 {
+    @apply font-primary text-base font-normal leading-[160%];
+  }
+
+  .text-preset-7 {
+    @apply font-primary text-base font-normal leading-[160%] uppercase;
+  }
+
+  .text-preset-8 {
+    @apply font-primary text-xs font-bold leading-[130%] uppercase tracking-wide;
+  }
+}
