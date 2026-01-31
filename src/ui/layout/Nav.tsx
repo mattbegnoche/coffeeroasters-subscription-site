@@ -8,7 +8,7 @@ import Container from "./Container";
 
 function Nav() {
   return (
-    <nav className="py-6 ">
+    <nav className="pt-6 pb-8">
       <Container className="flex flex-row flex-wrap sm:gap-4 justify-between items-center">
         <Link to="/" className="block w-44">
           <Logo />

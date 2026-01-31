@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 function AppLayout() {
   return (
-    <div>
+    <div className="text-neutral-900">
       <Nav />
       <main>
         <Outlet />

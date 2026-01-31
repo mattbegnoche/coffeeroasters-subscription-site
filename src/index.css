@@ -37,7 +37,7 @@
 }
 
 @theme {
-  /* Breakpoints */
+  /* Breakpoints  */
   --breakpoint-sm: 21.4rem;
   --breakpoint-md: 44rem;
 
@@ -55,6 +55,9 @@
   /* Font Families */
   --font-primary: "Barlow", system-ui, -apple-system, sans-serif;
   --font-secondary: "Fraunces", serif;
+
+  /* Custom Sizes */
+  --text-bg-gradient: clamp(2.5rem, 11.5vw, 11.375rem);
 }
 
 @layer components {
@@ -76,7 +79,7 @@
   }
 
   .text-preset-5 {
-    @apply font-primary text-lg font-bold leading-[140%];
+    @apply font-secondary text-lg font-bold leading-[140%];
   }
 
   .text-preset-6 {
