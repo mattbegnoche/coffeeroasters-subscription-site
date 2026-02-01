@@ -1,10 +1,19 @@
-function IconInstagram({ className }: { className?: string }) {
+function IconInstagram({
+  className,
+  "aria-label": ariaLabel,
+}: {
+  className?: string;
+  "aria-label"?: string;
+}) {
   return (
     <svg
       className={className}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       width="100%"
+      aria-hidden={ariaLabel ? undefined : true}
+      aria-label={ariaLabel}
+      role={ariaLabel ? "img" : undefined}
     >
       <path
         fill="currentColor"

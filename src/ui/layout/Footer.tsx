@@ -6,7 +6,7 @@ import Container from "./Container";
 
 function Footer() {
   return (
-    <footer>
+    <footer className="mb-6 sm:mb-10">
       <Container>
         <div
           className="bg-neutral-900 text-neutral-0 py-10 px-4 flex flex-col gap-6 items-center md:flex-row md:justify-between
