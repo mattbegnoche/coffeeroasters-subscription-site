@@ -11,10 +11,12 @@ function BackgroundImage({
   desktopImage,
   tabletImage,
   mobileImage,
+  altText,
 }: {
   desktopImage: string;
   tabletImage: string;
   mobileImage: string;
+  altText: string;
 }) {
   return (
     <picture className="absolute left-0 top-0 h-full w-full">
@@ -29,7 +31,7 @@ function BackgroundImage({
       <img
         className="h-full w-full object-cover"
         src={mobileImage}
-        alt="Coffee Press"
+        alt={altText}
       />
     </picture>
   );

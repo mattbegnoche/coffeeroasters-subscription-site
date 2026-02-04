@@ -9,7 +9,7 @@ function StepItem({
   text: string;
   theme?: string;
 }) {
-  const circleStyles = theme === "light" ? "bg-neutral-0" : "bg-neutral-900";
+  const circleStyles = theme === "light" ? "bg-neutral-0" : "bg-neutral-900 ";
 
   return (
     <li className="flex flex-col gap-6 items-center md:items-start text-center md:text-left max-w-[23.85rem]">
@@ -18,7 +18,7 @@ function StepItem({
           className={`[li:last-child_&]:hidden w-full h-0.5 bg-orange-200 absolute top-[50%] -transform-y-[50%]`}
         ></div>
         <div
-          className={`relative rounded-full border-2 w-8 h-8 ${circleStyles}`}
+          className={`relative rounded-full border-2 border-teal-600 w-8 h-8 ${circleStyles}`}
         ></div>
       </div>
       <div className="md:pr-24 flex flex-col gap-6 sm:gap-10">

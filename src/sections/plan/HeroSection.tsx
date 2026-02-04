@@ -1,8 +1,7 @@
-import Button from "../../ui/common/Button";
 import Container from "../../ui/layout/Container";
-import MobileImageHeroSection from "../../assets/home/mobile/image-hero-coffeepress.jpg";
-import TabletImageHeroSection from "../../assets/home/tablet/image-hero-coffeepress.jpg";
-import DesktopImageHeroSection from "../../assets/home/desktop/image-hero-coffeepress.jpg";
+import MobileImageHeroSection from "../../assets/plan/mobile/image-hero-blackcup.jpg";
+import TabletImageHeroSection from "../../assets/plan/tablet/image-hero-blackcup.jpg";
+import DesktopImageHeroSection from "../../assets/plan/desktop/image-hero-blackcup.jpg";
 import BackgroundImage from "../../ui/common/BackgroundImage";
 
 function HeroSection() {
@@ -17,15 +16,12 @@ function HeroSection() {
             altText="Coffe cup and grinder"
           />
           <div className="text-center text-neutral-50 relative sm:max-w-[26.3rem] md:max-w-[30.8rem] sm:text-left">
-            <h1 className="text-preset-1 mb-8">Great coffee made simple.</h1>
+            <h1 className="text-preset-1 mb-8">Create plan</h1>
             <p className="text-preset-6 mb-10 opacity-80 ">
-              Start your mornings with the world’s best coffees. Try our
-              expertly curated artisan coffees from our best roasters delivered
-              directly to your door, at your schedule.
+              Coffee the way you wanted it to be. For coffee delivered tomorrow,
+              or next week. For whatever brew method you use. For choice, for
+              convenience, for quality.
             </p>
-            <Button to="/subscribe" variant="primary">
-              Create your plan
-            </Button>
           </div>
         </div>
       </Container>

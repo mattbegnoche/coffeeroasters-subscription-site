@@ -8,8 +8,13 @@ interface ComponentProps {
 }
 
 function StepsSection({ theme = "light" }: ComponentProps) {
+  const bgStyles =
+    theme === "light"
+      ? ""
+      : "bg-neutral-900 py-12 sm:py-16 md:py-24 px-4 sm:px-8 md:px-20 text-neutral-0";
+
   return (
-    <div>
+    <div className={`${bgStyles}`}>
       <StepList>
         <StepItem
           theme={theme}

@@ -4,7 +4,6 @@ import AppLayout from "./ui/layout/AppLayout";
 import HomePage from "./pages/HomePage";
 import AboutUsPage from "./pages/AboutUsPage";
 import SubscribePage from "./pages/SubscribePage";
-import StyleGuide from "./pages/StyleGuide";
 
 const router = createBrowserRouter([
   {
@@ -21,10 +20,6 @@ const router = createBrowserRouter([
       {
         path: "/subscribe",
         element: <SubscribePage />,
-      },
-      {
-        path: "/style-guide",
-        element: <StyleGuide />,
       },
     ],
   },
