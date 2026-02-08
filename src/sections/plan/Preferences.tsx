@@ -1,41 +1,25 @@
-import {
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-} from "@headlessui/react";
 import { subscriptionQuestions } from "../../config/subscriptionQuestions";
 import Container from "../../ui/layout/Container";
-import IconArrow from "../../ui/icons/IconArrow";
 import Button from "../../ui/common/Button";
+// import { Form } from "react-router";
+import PreferenceLinkList from "./PreferenceLinkList";
+import PreferenceQuestion from "./PreferenceQuestion.tsx";
 
 function Preferences() {
+  /* TODO: Set up subscription context and provider using React */
   return (
     <section>
-      <Container>
-        {/* TODO: Navigation to dropdown */}
-        {/* TODO: Set up subscription context and provider using React */}
-        {subscriptionQuestions.map((question) => (
-          <form>
-            <Disclosure key={question.id}>
-              <DisclosureButton className="py-2 flex flex-row justify-between">
-                <h2 className="text-preset-2">{question.question}</h2>
-                <div className="w-8">
-                  <IconArrow />
-                </div>
-              </DisclosureButton>
-              <DisclosurePanel className="text-gray-500">
-                {question.options.map((option) => (
-                  <div className="mb-4" key={option.id}>
-                    <p>{option.title}</p>
-                    <p>{option.description}</p>
-                  </div>
-                ))}
-              </DisclosurePanel>
-            </Disclosure>
-          </form>
-        ))}
+      <Container className="md:grid md:grid-cols-12 flex flex-col gap-16">
+        <nav className="md:col-span-4 md:sticky md:top-4 md:self-start">
+          <PreferenceLinkList />
+        </nav>
+        <form className="flex flex-col gap-8 md:col-span-8">
+          {subscriptionQuestions.map((question) => (
+            <PreferenceQuestion key={question.id} question={question} />
+          ))}
+          <Button>Create your plan</Button>
+        </form>
         {/* TODO: ORDER SUMMARY */}
-        <Button>Create your plan</Button>
       </Container>
     </section>
   );

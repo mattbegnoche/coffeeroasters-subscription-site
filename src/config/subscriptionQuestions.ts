@@ -6,6 +6,7 @@ export interface SubscriptionOption {
 
 export interface SubscriptionQuestion {
   id: string;
+  linkText: string;
   question: string;
   options: SubscriptionOption[];
 }
@@ -13,6 +14,7 @@ export interface SubscriptionQuestion {
 export const subscriptionQuestions: SubscriptionQuestion[] = [
   {
     id: "preferences",
+    linkText: "Preferences",
     question: "How do you drink your coffee?",
     options: [
       {
@@ -36,6 +38,7 @@ export const subscriptionQuestions: SubscriptionQuestion[] = [
   },
   {
     id: "bean-type",
+    linkText: "Bean Type",
     question: "What type of coffee?",
     options: [
       {
@@ -60,6 +63,7 @@ export const subscriptionQuestions: SubscriptionQuestion[] = [
   },
   {
     id: "quantity",
+    linkText: "Quantity",
     question: "How much would you like?",
     options: [
       {
@@ -84,6 +88,7 @@ export const subscriptionQuestions: SubscriptionQuestion[] = [
   },
   {
     id: "grind-option",
+    linkText: "Grind Option",
     question: "Want us to grind them?",
     options: [
       {
@@ -107,6 +112,7 @@ export const subscriptionQuestions: SubscriptionQuestion[] = [
   },
   {
     id: "deliveries",
+    linkText: "Deliveries",
     question: "How often should we deliver?",
     options: [
       {
