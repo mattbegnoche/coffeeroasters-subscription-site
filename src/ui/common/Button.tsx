@@ -8,7 +8,7 @@ const baseStyles =
 const variants = {
   primary: "bg-teal-600 text-neutral-0 hover:bg-teal-300",
   secondary: "bg-neutral-700 text-neutral-0 hover:bg-neutral-500",
-  disabled: "bg-neutral-300 text-neutral-0 cursor-not-allowed",
+  disabled: "bg-neutral-200 text-neutral-0 cursor-not-allowed",
 } as const;
 
 type ButtonVariant = keyof typeof variants;
@@ -24,9 +24,11 @@ function Button({
   className = "",
   to = "",
   children,
+  disabled,
   ...props
 }: ButtonProps) {
-  const variantStyles = variants[variant];
+  const effectiveVariant = disabled ? "disabled" : variant;
+  const variantStyles = variants[effectiveVariant];
 
   if (to)
     return (

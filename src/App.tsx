@@ -4,7 +4,6 @@ import AppLayout from "./ui/layout/AppLayout";
 import HomePage from "./pages/HomePage";
 import AboutUsPage from "./pages/AboutUsPage";
 import SubscribePage from "./pages/SubscribePage";
-import { SubscriptionProvider } from "./context/SubscriptionContext";
 
 const router = createBrowserRouter([
   {
@@ -27,10 +26,6 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return (
-    <SubscriptionProvider>
-      <RouterProvider router={router} />
-    </SubscriptionProvider>
-  );
+  return <RouterProvider router={router} />;
 }
 export default App;

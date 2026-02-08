@@ -10,12 +10,18 @@ import PreferenceQuestionOptionList from "./PreferenceQuestionOptionList.tsx";
 
 interface PreferenceQuestionProps {
   question: SubscriptionQuestion;
+  disabled?: boolean;
 }
 
-function PreferenceQuestion({ question }: PreferenceQuestionProps) {
+const disabledStyles = "*:pointer-events-none cursor-not-allowed opacity-20";
+
+function PreferenceQuestion({
+  question,
+  disabled = false,
+}: PreferenceQuestionProps) {
   return (
-    <div id={question.id}>
-      <Disclosure defaultOpen={true}>
+    <div className={disabled ? disabledStyles : ``} id={question.id}>
+      <Disclosure defaultOpen={disabled ? false : true}>
         <DisclosureButton className="group py-2 flex flex-row justify-between items-center w-full">
           <h2 className="text-preset-2">{question.question}</h2>
           <div className="w-[1.136rem] group-data-open:rotate-180 transition-transform text-teal-600 shrink-0">
