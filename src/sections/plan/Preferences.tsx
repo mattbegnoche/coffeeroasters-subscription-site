@@ -4,8 +4,13 @@ import Button from "../../ui/common/Button";
 import PreferenceLinkList from "./PreferenceLinkList";
 import PreferenceQuestion from "./PreferenceQuestion.tsx";
 import OrderSummary from "./OrderSummary.tsx";
+import { useSubscription } from "../../context/SubscriptionContext.tsx";
+import { isSubscriptionComplete } from "../../context/subscriptionSelectors.ts";
 
 function Preferences() {
+  const { state } = useSubscription();
+  const canSubmit = isSubscriptionComplete(state);
+
   return (
     <section className="pb-16">
       <Container className="md:grid md:grid-cols-12 flex flex-col gap-16">
@@ -98,6 +103,7 @@ function Preferences() {
             }}
           />
           <PreferenceQuestion
+            disabled={state.isCapsule}
             action={"SET_GRIND"}
             question={{
               id: "grind-option",
@@ -154,7 +160,7 @@ function Preferences() {
             }}
           />
           <OrderSummary />
-          <Button disabled className="self-end ">
+          <Button disabled={!canSubmit} className="self-end">
             Create your plan
           </Button>
         </form>

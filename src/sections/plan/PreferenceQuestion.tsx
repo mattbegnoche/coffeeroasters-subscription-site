@@ -29,12 +29,34 @@ interface PreferenceQuestionProps<T extends SubscriptionActionType> {
 
 const disabledStyles = "*:pointer-events-none cursor-not-allowed opacity-20";
 
+// Map action types to their corresponding state field
+function getStateValue<T extends SubscriptionActionType>(
+  state: ReturnType<typeof useSubscription>["state"],
+  action: T,
+): PayloadByAction<T> | null {
+  switch (action) {
+    case "SET_PREFERENCE":
+      return state.preference as PayloadByAction<T> | null;
+    case "SET_COFFEE_TYPE":
+      return state.coffeeType as PayloadByAction<T> | null;
+    case "SET_QUANTITY":
+      return state.quantity as PayloadByAction<T> | null;
+    case "SET_GRIND":
+      return state.grind as PayloadByAction<T> | null;
+    case "SET_FREQUENCY":
+      return state.frequency as PayloadByAction<T> | null;
+    default:
+      return null;
+  }
+}
+
 function PreferenceQuestion<T extends SubscriptionActionType>({
   question,
   disabled = false,
   action,
 }: PreferenceQuestionProps<T>) {
-  const { dispatch } = useSubscription();
+  const { state, dispatch } = useSubscription();
+  const currentValue = getStateValue(state, action);
 
   return (
     <div className={disabled ? disabledStyles : ``} id={question.id}>
@@ -47,6 +69,10 @@ function PreferenceQuestion<T extends SubscriptionActionType>({
         </DisclosureButton>
         <DisclosurePanel className="text-gray-500 pt-8">
           <RadioGroup
+            key={`${action}-${currentValue}`}
+            value={
+              (currentValue ?? undefined) as PayloadByAction<T> | undefined
+            }
             onChange={(value: PayloadByAction<T>) =>
               dispatch({
                 type: action,

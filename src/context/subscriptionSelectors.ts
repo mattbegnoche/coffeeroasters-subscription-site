@@ -40,6 +40,24 @@ export function isGrindDisabled(preference: CoffeePreference | null): boolean {
   return preference === "Capsule";
 }
 
+// Returns true when all required fields are selected
+// Grind is only required when preference is NOT Capsule
+export function isSubscriptionComplete(state: SubscriptionState): boolean {
+  const { preference, coffeeType, quantity, frequency, grind } = state;
+
+  // Check all required fields
+  if (!preference || !coffeeType || !quantity || !frequency) {
+    return false;
+  }
+
+  // If not Capsule, grind is also required
+  if (preference !== "Capsule" && !grind) {
+    return false;
+  }
+
+  return true;
+}
+
 // Returns the per shipment price based on quantity and frequency
 // Returns null if either value hasn't been selected yet
 export function getShipmentPrice(

@@ -20,4 +20,5 @@ export type SubscriptionState = {
   quantity: Quantity | null;
   grind: GrindOption;
   frequency: DeliveryFrequency;
+  isCapsule: boolean;
 };

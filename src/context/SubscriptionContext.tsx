@@ -22,6 +22,7 @@ const initialState: SubscriptionState = {
   quantity: null,
   grind: null,
   frequency: null,
+  isCapsule: false,
 };
 
 function subscriptionReducer(
@@ -32,11 +33,12 @@ function subscriptionReducer(
     case "SET_PREFERENCE": {
       // When Capsule is selected, we null out grind since that section
       // becomes disabled and any previous selection is no longer valid
-      const isCapsule = action.payload === "Capsule";
+      const checkCapsule = action.payload === "Capsule";
       return {
         ...state,
         preference: action.payload,
-        grind: isCapsule ? null : state.grind,
+        grind: checkCapsule ? null : state.grind,
+        isCapsule: checkCapsule,
       };
     }
 
