@@ -8,17 +8,34 @@ import type { SubscriptionQuestion } from "../../config/subscriptionQuestions";
 import IconArrow from "../../ui/icons/IconArrow";
 import PreferenceQuestionOptionList from "./PreferenceQuestionOptionList.tsx";
 
-interface PreferenceQuestionProps {
+import { useSubscription } from "../../context/SubscriptionContext.tsx";
+import type { SubscriptionAction } from "../../context/SubscriptionContext.tsx";
+
+type SubscriptionActionWithPayload = Exclude<
+  SubscriptionAction,
+  { type: "RESET" }
+>;
+type SubscriptionActionType = SubscriptionActionWithPayload["type"];
+type PayloadByAction<T extends SubscriptionActionType> = Extract<
+  SubscriptionActionWithPayload,
+  { type: T }
+>["payload"];
+
+interface PreferenceQuestionProps<T extends SubscriptionActionType> {
   question: SubscriptionQuestion;
   disabled?: boolean;
+  action: T;
 }
 
 const disabledStyles = "*:pointer-events-none cursor-not-allowed opacity-20";
 
-function PreferenceQuestion({
+function PreferenceQuestion<T extends SubscriptionActionType>({
   question,
   disabled = false,
-}: PreferenceQuestionProps) {
+  action,
+}: PreferenceQuestionProps<T>) {
+  const { dispatch } = useSubscription();
+
   return (
     <div className={disabled ? disabledStyles : ``} id={question.id}>
       <Disclosure defaultOpen={disabled ? false : true}>
@@ -30,6 +47,12 @@ function PreferenceQuestion({
         </DisclosureButton>
         <DisclosurePanel className="text-gray-500 pt-8">
           <RadioGroup
+            onChange={(value: PayloadByAction<T>) =>
+              dispatch({
+                type: action,
+                payload: value,
+              } as Extract<SubscriptionActionWithPayload, { type: T }>)
+            }
             aria-label={question.question}
             className="flex flex-col gap-4 sm:grid sm:grid-cols-3 sm:gap-6"
           >

@@ -6,7 +6,6 @@ import PreferenceQuestion from "./PreferenceQuestion.tsx";
 import OrderSummary from "./OrderSummary.tsx";
 
 function Preferences() {
-  /* TODO: Set up subscription context and provider using React */
   return (
     <section className="pb-16">
       <Container className="md:grid md:grid-cols-12 flex flex-col gap-16">
@@ -15,6 +14,7 @@ function Preferences() {
         </nav>
         <form className="flex flex-col gap-8 md:col-span-8">
           <PreferenceQuestion
+            action={"SET_PREFERENCE"}
             question={{
               id: "preferences",
               linkText: "Preferences",
@@ -42,6 +42,7 @@ function Preferences() {
             }}
           />
           <PreferenceQuestion
+            action={"SET_COFFEE_TYPE"}
             question={{
               id: "bean-type",
               linkText: "Bean Type",
@@ -69,6 +70,7 @@ function Preferences() {
             }}
           />
           <PreferenceQuestion
+            action={"SET_QUANTITY"}
             question={{
               id: "quantity",
               linkText: "Quantity",
@@ -96,6 +98,7 @@ function Preferences() {
             }}
           />
           <PreferenceQuestion
+            action={"SET_GRIND"}
             question={{
               id: "grind-option",
               linkText: "Grind Option",
@@ -123,6 +126,7 @@ function Preferences() {
             }}
           />
           <PreferenceQuestion
+            action={"SET_FREQUENCY"}
             question={{
               id: "deliveries",
               linkText: "Deliveries",
