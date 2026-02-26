@@ -6,10 +6,13 @@ import PreferenceQuestion from "./PreferenceQuestion.tsx";
 import OrderSummary from "./OrderSummary.tsx";
 import { useSubscription } from "../../context/SubscriptionContext.tsx";
 import { isSubscriptionComplete } from "../../context/subscriptionSelectors.ts";
+import OrderSummaryModal from "./OrderSummaryModal.tsx";
+import { useState } from "react";
 
 function Preferences() {
   const { state } = useSubscription();
   const canSubmit = isSubscriptionComplete(state);
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   return (
     <section className="pb-16">
@@ -17,6 +20,10 @@ function Preferences() {
         <nav className="md:col-span-4 md:sticky md:top-4 md:self-start">
           <PreferenceLinkList />
         </nav>
+        <OrderSummaryModal
+          open={isOpenModal}
+          handleIsOpenModel={setIsOpenModal}
+        />
         <form className="flex flex-col gap-8 md:col-span-8">
           <PreferenceQuestion
             action={"SET_PREFERENCE"}
@@ -160,11 +167,17 @@ function Preferences() {
             }}
           />
           <OrderSummary />
-          <Button disabled={!canSubmit} className="self-end">
+          <Button
+            onClick={() => {
+              if (!canSubmit) return;
+              setIsOpenModal(true);
+            }}
+            disabled={!canSubmit}
+            className="self-end"
+          >
             Create your plan
           </Button>
         </form>
-        {/* TODO: ORDER SUMMARY */}
       </Container>
     </section>
   );
