@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://coffeeroasters-subscription-site-begn.netlify.app/sitemap.xml
