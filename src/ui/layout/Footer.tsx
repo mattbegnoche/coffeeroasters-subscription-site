@@ -15,13 +15,15 @@ function Footer() {
           <Link to="/" className="max-w-40 md:max-w-[14.2rem]">
             <Logo />
           </Link>
-          <ul className="text-preset-8 *:text-neutral-500 *:hover:text-neutral-0 flex gap-x-5 md:gap-x-8 items-center text-center">
-            {links.map((link) => (
-              <li key={link.label}>
-                <NavLink to={link.href}>{link.text}</NavLink>
-              </li>
-            ))}
-          </ul>
+          <nav>
+            <ul className="text-preset-8 *:text-neutral-500 *:hover:text-neutral-0 flex gap-x-5 md:gap-x-8 items-center text-center">
+              {links.map((link) => (
+                <li key={link.label}>
+                  <NavLink to={link.href}>{link.text}</NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
           <ul className="flex flex-row gap-5 items-center">
             {socialLinks.map(function (social) {
               const Icon = social.icon;
