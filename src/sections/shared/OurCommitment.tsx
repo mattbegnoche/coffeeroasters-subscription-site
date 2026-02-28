@@ -7,8 +7,8 @@ import BackgroundImage from "../../ui/common/BackgroundImage";
 function OurCommitment() {
   return (
     <section className="mt-20 mb-20 sm:mt-24 md:mt-40">
-      <Container className="flex flex-col sm:flex-row gap-12 md:max-w-280 items-center">
-        <div className="relative rounded-lg overflow-clip w-full sm:w-0 aspect-[21.375/25] sm:min-h-130 sm:min-w-70 sm:aspect-auto md:min-h-130 md:min-w-111.25">
+      <Container className="flex flex-col sm:grid sm:grid-cols-12  gap-12 md:max-w-280 items-center">
+        <div className="relative rounded-lg overflow-clip w-full aspect-[21.375/25] sm:min-h-130 sm:w-full sm:col-span-5 sm:aspect-auto md:min-h-130 md:min-w-111.25">
           <BackgroundImage
             altText="Baristas making coffee"
             desktopImage={desktopImage}
@@ -16,7 +16,7 @@ function OurCommitment() {
             mobileImage={mobileImage}
           />
         </div>
-        <div className="text-center sm:text-left">
+        <div className="text-center sm:text-left sm:col-span-7">
           <h2 className="text-preset-2 mb-5">Our commitment</h2>
           <p className="text-preset-6 opacity-80">
             We’re built on a simple mission and a commitment to doing good along

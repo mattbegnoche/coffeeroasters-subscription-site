@@ -8,7 +8,7 @@ function OurHeadquarters() {
         <h2 className="text-preset-4 text-neutral-500 text-center sm:text-left">
           Our headquarters
         </h2>
-        <ul className="flex flex-col gap-8 sm:flex-row sm:gap-16 md:grid md:grid-cols-3">
+        <ul className="flex flex-col gap-8 sm:flex-row sm:gap-16 sm:flex-wrap md:grid md:grid-cols-3 ">
           {headquarters.map((hq) => (
             <li
               key={hq.country}

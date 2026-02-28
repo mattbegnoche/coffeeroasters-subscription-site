@@ -82,7 +82,7 @@ export function getMonthlyPrice(
 
 // Formats price as a string with 2 decimal places e.g. "$28.80"
 export function formatPrice(price: number | null): string {
-  if (price === null) return "0.00";
+  if (price === null) return "$0.00";
   return `$${price.toFixed(2)}`;
 }
 

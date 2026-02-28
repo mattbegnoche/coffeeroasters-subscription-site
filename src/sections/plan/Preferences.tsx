@@ -62,7 +62,7 @@ function Preferences() {
               options: [
                 {
                   id: "single-origin",
-                  title: "Single origin",
+                  title: "Single Origin",
                   description:
                     "Distinct, high quality coffee from a specific family-owned farm",
                 },
@@ -147,19 +147,19 @@ function Preferences() {
               options: [
                 {
                   id: "every-week",
-                  title: "Every week",
+                  title: "Every Week",
                   description:
                     "$14.00 per shipment. Includes free first-class shipping.",
                 },
                 {
                   id: "every-2-weeks",
-                  title: "Every 2 weeks",
+                  title: "Every 2 Weeks",
                   description:
                     "$17.25 per shipment. Includes free priority shipping.",
                 },
                 {
                   id: "every-month",
-                  title: "Every month",
+                  title: "Every Month",
                   description:
                     "$22.50 per shipment. Includes free priority shipping.",
                 },

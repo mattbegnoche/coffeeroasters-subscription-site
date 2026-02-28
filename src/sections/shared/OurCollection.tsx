@@ -19,7 +19,10 @@ function OurCollection() {
         </div>
         <ul className="flex flex-col gap-8 items-center relative z-10 md:flex-row flex-wrap md:justify-center">
           {coffeeCollection.map((coffee) => (
-            <li className="sm:flex sm:flex-row md:flex-col gap-x-8 items-center">
+            <li
+              key={coffee.name}
+              className="sm:flex sm:flex-row md:flex-col gap-x-8 items-center"
+            >
               <img
                 className="mx-auto max-w-62 sm:mx-0"
                 alt={coffee.name}
